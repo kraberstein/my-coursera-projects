@@ -2,45 +2,104 @@
 
 //enum MONTH { JAN = 31, FEB = 28, MAR = 31 };
 
-map<char, int> BuildCharCounters(string str) {
-	map<char, int> result;
-	for (char& c : str) {
-		++result[c];
-	}
-	return result;
-}
-
 int main() {
-	//vector<string> dailyDeals(31, " ");			//		≈жедневные дела
-	//vector<int> daysInMonth = { 31, 28, 30 };
-	//int Q, numOfDay;
-	//string operation, deal;
-	//MONTH currMonth = JAN;
-	//cin >> Q;
-	//for (int i = 0; i != Q; ++i) {
-	//	cin >> operation;
-	//	if (operation == "NEXT") {
+	
+	//		≈жедневные дела реализовать через map<int, vector<string>>
 
-	//	}
-	//	cin >> numOfDay;
-	//	if (operation == "DUMP") {
-
-	//	}
-	//	cin >> deal;
-	//	dailyDeals[numOfDay] += deal;
-	//}
-
-	map<char, int> first_word_char_counter;
-	map<char, int> second_word_char_counter;
-	string firstWord;
-	string secondWord;
-	int N;
-	cin >> N;
-	for (int i = 0; i != N; ++i) {
-		cin >> firstWord >> secondWord;
-		first_word_char_counter = BuildCharCounters(firstWord);
-		second_word_char_counter = BuildCharCounters(secondWord);
-		cout << (first_word_char_counter == second_word_char_counter ? "YES" : "NO") << endl;
+	map<string, vector<string>> buses_and_stops;
+	map<int, string> queueBus;
+	int queueBusNum = 0;
+	bool isAnyStop = false;
+	vector<string> stops;
+	vector<string> interchBuses;
+	string operation, bus, stop, stop_;
+	int Q, stop_count, interchanges_count = 0;
+	cin >> Q;
+	for (int i = 0; i != Q; ++i) {
+		cin >> operation;
+		if (operation == "NEW_BUS") {
+			stops.clear();
+			cin >> bus >> stop_count;
+			for (int i = 0; i != stop_count; ++i) {
+				cin >> stop;
+				stops.push_back(stop);
+			}
+			buses_and_stops[bus] = stops;
+			queueBus[++queueBusNum] = bus;
+		}
+		if (operation == "BUSES_FOR_STOP") {
+			cin >> stop;
+			for (const auto& buses : buses_and_stops) {
+				for (const auto& stop_ : buses.second) {
+					if (stop == stop_) {
+						interchBuses.push_back(buses.first);
+						isAnyStop = true;
+					}		
+				}
+			}
+			for (const auto& qB : queueBus) {
+				for (const auto& iB : interchBuses) {
+					if (qB.second == iB) {
+						cout << iB << " ";
+					}
+				}
+			}
+			if (!isAnyStop) {
+				cout << "No stop";
+			}
+			interchBuses.clear();
+			isAnyStop = false;
+			cout << endl;
+		}
+		if (operation == "STOPS_FOR_BUS") {
+			cin >> bus;
+			if (buses_and_stops.count(bus) == 0) {
+				cout << "No bus" << endl;
+			}
+			else {
+				for (const auto& buses : buses_and_stops) {
+					if (buses.first == bus) {
+						for (const auto& s : buses.second) {
+							cout << "Stop " << s << ": ";
+							for (const auto& stops_ : buses_and_stops) {
+								if (count(begin(stops_.second), end(stops_.second), s) == 1 && 
+									bus != stops_.first) {	
+									interchBuses.push_back(stops_.first);
+									++interchanges_count;
+								}
+							}
+							for (const auto& qB : queueBus) {
+								for (const auto& iB : interchBuses) {
+									if (qB.second == iB) {
+										cout << iB << " ";
+									}
+								}
+							}
+							if (interchanges_count == 0) {
+								cout << "no interchange";
+							}
+							interchanges_count = 0;
+							interchBuses.clear();
+							cout << endl;
+						}
+					}
+				}
+			}
+		}
+		if (operation == "ALL_BUSES") {
+			if (buses_and_stops.count(bus) == 0) {
+				cout << "No buses" << endl;
+			}
+			else {
+				for (const auto& bus : buses_and_stops) {
+					cout << "Bus " << bus.first << ": ";
+					for (const auto& stop : bus.second) {
+						cout << stop << " ";
+					}
+					cout << endl;
+				}
+			}
+		}
 	}
 
 	return 0;
