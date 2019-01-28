@@ -5,6 +5,7 @@
 #include <vector>
 #include <string>
 #include <map>
+#include <algorithm>
 using namespace std;
 
 const int& gcd(const int& a, const int& b);		/* calculate greatest

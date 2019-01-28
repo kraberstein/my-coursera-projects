@@ -1,11 +1,9 @@
 #include "coursera.h"
 
-//enum MONTH { JAN = 31, FEB = 28, MAR = 31 };
+//	enum MONTH { JAN = 31, FEB = 28, MAR = 31 };
+//	≈жедневные дела реализовать через map<int, vector<string>>
 
 int main() {
-	
-	//		≈жедневные дела реализовать через map<int, vector<string>>
-
 	map<string, vector<string>> buses_and_stops;
 	map<int, string> queueBus;
 	int queueBusNum = 0;
@@ -22,9 +20,8 @@ int main() {
 			cin >> bus >> stop_count;
 			for (int i = 0; i != stop_count; ++i) {
 				cin >> stop;
-				stops.push_back(stop);
+				buses_and_stops[bus].push_back(stop);
 			}
-			buses_and_stops[bus] = stops;
 			queueBus[++queueBusNum] = bus;
 		}
 		if (operation == "BUSES_FOR_STOP") {
@@ -87,7 +84,7 @@ int main() {
 			}
 		}
 		if (operation == "ALL_BUSES") {
-			if (buses_and_stops.count(bus) == 0) {
+			if (buses_and_stops.size() == 0) {
 				cout << "No buses" << endl;
 			}
 			else {
