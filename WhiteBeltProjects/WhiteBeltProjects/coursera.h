@@ -3,8 +3,9 @@
 
 #include <iostream>
 #include <vector>
-#include <string>
+#include <set>
 #include <map>
+#include <string>
 #include <algorithm>
 using namespace std;
 
@@ -14,7 +15,7 @@ const int& gcd(const int& a, const int& b);		/* calculate greatest
 void binary_integer(int number);				/* convert integer
  	 	 	 	 	 	 	 	 	 	 	 	 * to binary */
 
-bool IsPalindrom(string str);
+//bool IsPalindrom(string str);
 
 vector<string> PalindromFilter(const vector<string>& words,
                                 int minLength);
