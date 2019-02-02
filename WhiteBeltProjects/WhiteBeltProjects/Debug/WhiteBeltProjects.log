@@ -1,7 +1,4 @@
-﻿  coursera.cpp
-c:\users\борис\documents\github\my-coursera-projects\whitebeltprojects\whitebeltprojects\coursera.cpp(25): warning C4018: <=: несоответствие типов со знаком и без знака
-c:\users\борис\documents\github\my-coursera-projects\whitebeltprojects\whitebeltprojects\coursera.cpp(37): warning C4018: >=: несоответствие типов со знаком и без знака
-c:\users\борис\documents\github\my-coursera-projects\whitebeltprojects\whitebeltprojects\coursera.cpp(59): warning C4018: <: несоответствие типов со знаком и без знака
+﻿  task.cpp
   main.cpp
   Создание кода...
   WhiteBeltProjects.vcxproj -> C:\Users\Борис\Documents\GitHub\my-coursera-projects\WhiteBeltProjects\Debug\WhiteBeltProjects.exe
