@@ -21,26 +21,26 @@ void binary_integer(int number) {	//	*** *** *** *** convert integer to binary
     cout << endl;
 }
 
-bool IsPalindrom(string str) {
-    for (int i = 1; i <= str.size()/2 + 1; ++i) {
-        if (str[i - 1] != str[str.size() - i]) {
-            return false;
-        }
-    }
-    return true;
-}
+//bool IsPalindrom(string str) {
+//    for (int i = 1; i <= str.size()/2 + 1; ++i) {
+//        if (str[i - 1] != str[str.size() - i]) {
+//            return false;
+//        }
+//    }
+//    return true;
+//}
 
-vector<string> PalindromFilter (const vector<string>& words,
-                                int minLength) {
-    vector<string> result;
-    for (auto s : words) {
-        if (IsPalindrom(s) && s.size() >= minLength) {
-            cout << s << endl;
-            result.push_back(s);
-        }
-    }
-    return result;
-}
+//vector<string> PalindromFilter (const vector<string>& words,
+//                                int minLength) {
+//    vector<string> result;
+//    for (auto s : words) {
+//        if (IsPalindrom(s) && s.size() >= minLength) {
+//            cout << s << endl;
+//            result.push_back(s);
+//        }
+//    }
+//    return result;
+//}
 
 void UpdateIfGreater(int first, int& second) {
 	if (first > second) {
