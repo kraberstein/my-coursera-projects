@@ -1,4 +1,3 @@
-﻿  task.cpp
-  main.cpp
-  Создание кода...
+﻿  main.cpp
+c:\users\борис\documents\github\my-coursera-projects\whitebeltprojects\whitebeltprojects\main.cpp(29): warning C4018: <: несоответствие типов со знаком и без знака
   WhiteBeltProjects.vcxproj -> C:\Users\Борис\Documents\GitHub\my-coursera-projects\WhiteBeltProjects\Debug\WhiteBeltProjects.exe
