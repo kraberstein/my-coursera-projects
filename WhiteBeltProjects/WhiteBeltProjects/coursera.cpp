@@ -21,26 +21,26 @@ void binary_integer(int number) {	//	*** *** *** *** convert integer to binary
     cout << endl;
 }
 
-//bool IsPalindrom(string str) {
-//    for (int i = 1; i <= str.size()/2 + 1; ++i) {
-//        if (str[i - 1] != str[str.size() - i]) {
-//            return false;
-//        }
-//    }
-//    return true;
-//}
+bool IsPalindrom(string str) {
+    for (int i = 1; i <= str.size()/2 + 1; ++i) {
+        if (str[i - 1] != str[str.size() - i]) {
+            return false;
+        }
+    }
+    return true;
+}
 
-//vector<string> PalindromFilter (const vector<string>& words,
-//                                int minLength) {
-//    vector<string> result;
-//    for (auto s : words) {
-//        if (IsPalindrom(s) && s.size() >= minLength) {
-//            cout << s << endl;
-//            result.push_back(s);
-//        }
-//    }
-//    return result;
-//}
+vector<string> PalindromFilter (const vector<string>& words,
+                                int minLength) {
+    vector<string> result;
+    for (auto s : words) {
+        if (IsPalindrom(s) && s.size() >= minLength) {
+            cout << s << endl;
+            result.push_back(s);
+        }
+    }
+    return result;
+}
 
 void UpdateIfGreater(int first, int& second) {
 	if (first > second) {
@@ -66,3 +66,49 @@ vector<int> Reversed(const vector<int>& v) {
 	Reverse(result);
 	return result;
 }
+
+// working with read and write files
+void ReadAll(const string& path) {
+	ifstream input(path);
+// ways of reading from file
+//	while (getline(input, line)) {
+//	}
+//	while (input >> x) {
+//	}
+//	for (double x; input >> x;) {
+//	}
+//	stringstream name("");	// поток строковый
+//	ostringstream output;
+//	stringstream input("5/7");
+//  cout << boolalpha << ; вывод false/true , а не 0/1
+}
+
+void WriteAll(const string& ipath, const string& opath) {
+	ofstream output(opath);
+	ifstream input(ipath);
+	if (input) {
+		string line;
+		while (getline(input, line)) {
+			output << line << endl;
+		}
+	}
+//	ofstream output(path, ios::app);	дозапись
+}
+
+// print in standart output with manilulators <iomanip>
+void Print(const vector<string>& names, const vector<double>& values,
+		   int width) {
+	cout << setfill('.');	//	заполнить пространство точками для setw
+	cout << left;	//	выравнивание данных по левому краю
+	for (const auto& n : names) {
+		cout << setw(width) << n << " ";
+	}
+		cout << endl;
+		cout << fixed << setprecision(2);	//	манипуляторы: точность вывода вещ. чисел
+											//	fixed - фикс. 6 знаков после, setprecision(2) - 2
+
+	for (const auto& v : values) {
+		cout << setw(width) << v << " "; //	setw(num) резервация места под переменную
+	}	   	
+}
+

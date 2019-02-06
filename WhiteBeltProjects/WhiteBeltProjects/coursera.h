@@ -1,5 +1,5 @@
-#ifndef COURSERA_H_
-#define COURSERA_H_
+#ifndef COURSERA_H
+#define COURSERA_H
 
 #include <iostream>
 #include <vector>
@@ -7,6 +7,9 @@
 #include <map>
 #include <string>
 #include <algorithm>
+#include <fstream>
+#include <iomanip>
+#include <cmath>
 using namespace std;
 
 const int& gcd(const int& a, const int& b);		/* calculate greatest
@@ -26,6 +29,14 @@ void MoveStrings(vector<string>&, vector<string>&);
 
 void Reverse(vector<int>&);
 
-vector<int> Reversed(const vector<int>& v);
+vector<int> Reversed(const vector<int>&);
 
-#endif /* COURSERA_H_ */
+// working with read and write files
+void ReadAll(const string& path);
+void WriteAll(const string& ipath, const string& opath);
+
+// print in standart output with manilulators <iomanip>
+void Print(const vector<string>& names, const vector<double>& values,
+		   int width);
+
+#endif /* COURSERA_H */
