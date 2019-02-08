@@ -31,4 +31,6 @@ istream& operator>>(istream& stream, Rational& rat);
 
 ostream& operator<<(ostream& stream, const Rational& rat);
 
+Rational calcRationals(const string& expression);
+
 #endif /* RATIONAL_H */

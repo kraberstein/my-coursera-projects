@@ -71,16 +71,17 @@ vector<int> Reversed(const vector<int>& v) {
 void ReadAll(const string& path) {
 	ifstream input(path);
 // ways of reading from file
-//	while (getline(input, line)) {
+//	while (getline(input, line)) {	//	1
 //	}
-//	while (input >> x) {
+//	while (input >> x) {	//	2
 //	}
-//	for (double x; input >> x;) {
+//	for (double x; input >> x;) {	//	3
 //	}
 //	stringstream name("");	// поток строковый
 //	ostringstream output;
 //	stringstream input("5/7");
 //  cout << boolalpha << ; вывод false/true , а не 0/1
+//	stream.peek();	//	возвращает следующий элемент
 }
 
 void WriteAll(const string& ipath, const string& opath) {
