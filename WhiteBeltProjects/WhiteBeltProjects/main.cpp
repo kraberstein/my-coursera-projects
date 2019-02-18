@@ -1,4 +1,4 @@
-#include "coursera.h"
+//#include "coursera.h"
 
 //	throw exception(); кидаем исключение
 //	throw runtime_error(string s или поток);
@@ -11,5 +11,11 @@
 //						 	ex.what(); -- если передали через runtime_error}
 
 int main() {
-	return 0;
+	Database db;
+    
+  	string command;
+  	while (getline(cin, command)) {
+    
+  	}
+  	return 0;
 }
