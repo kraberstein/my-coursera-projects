@@ -1,6 +1,6 @@
 #include <iostream>
 
-int get_fibonacci_last_digit_naive(int n) {
+int get_fibonacci_last_digit_naive(long long n) {
     if (n <= 1)
         return n;
 
@@ -16,7 +16,7 @@ int get_fibonacci_last_digit_naive(int n) {
     return current % 10;
 }
 
-int get_fibonacci_last_digit_fast(int n) {
+int get_fibonacci_last_digit_fast(long long n, long long m) {
     if (n <= 1)
         return n;
 
@@ -26,7 +26,7 @@ int get_fibonacci_last_digit_fast(int n) {
     for (int i = 0; i < n - 1; ++i) {
         int tmp_previous = previous;
         previous = current;
-        current = (tmp_previous + current)%10;
+        current = (tmp_previous + current)%m;
     }
 
     return current;
@@ -35,6 +35,6 @@ int get_fibonacci_last_digit_fast(int n) {
 int main() {
     int n;
     std::cin >> n;
-    int c = get_fibonacci_last_digit_fast(n);
+    int c = get_fibonacci_last_digit_fast(n, 10);
     std::cout << c << '\n';
 }
